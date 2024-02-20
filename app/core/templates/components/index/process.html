@@ -1,0 +1,22 @@
+<section class="process section primary-bg">
+    <div class="process_container container">
+        <h2 class="title">{{process.title}}</span></h2>
+        <p class="process_text">{{process.description}}</p>
+    </div>
+    <div class="container-fluid process_fluid p-0">
+        <div class="container">
+            <ul class="process_steps progress-tracker">
+                {% for punkt in process.punkts.all %}
+                <li class="process_steps-step progress-step">
+                    <div class="progress-marker"><span class="progress-marker_spot"></span> <span
+                            class="progress-marker_spot--underlay"></span></div>
+                    <div class="process_steps-step_wrapper">
+                        <h4 class="title">{{punkt.title}}</h4>
+                        <p class="description">{{punkt.description}}</p>
+                    </div>
+                </li>
+                {% endfor %}
+            </ul>
+        </div>
+    </div>
+</section>

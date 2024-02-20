@@ -1,0 +1,28 @@
+<section class="projects primary-bg section">
+    <div class="container">
+        <div class="projects_header section_header"><span class="subtitle">BİZ NƏ EDİRİK</span>
+            <h2 class="title" data-aos="fade-right"><span class="highlight">Proyektlərimiz</span></h2>
+        </div>
+        <ul class="projects_list">
+            {% for project in projects %}
+            <li class="projects_list-item">
+                <div class="media" data-aos="zoom-in-right">
+                    <picture>
+                        <source data-srcset="{{project.image.url}}" srcset="{{project.image.url}}" type="image/webp">
+                        <img class="lazy" data-src="{{project.image.url}}" src="{{project.image.url}}"
+                            alt="Jazzy Elite Construction Shopping Center">
+                    </picture>
+                </div>
+                <div class="main">
+                    <h3 class="main_title" data-aos="fade-in"><span class="text">{{project.title}}</span> <span class="divider divider--line" data-aos="slide-right"></span>
+                    </h3>
+                    <div class="main_info"><span class="location" data-aos="fade-in" data-aos-delay="50"><i
+                                class="icon-location icon"></i>{{project.location}}</span><a
+                            class="link link-arrow link-arrow--alt" href="single-project.html" data-aos="fade-in"
+                            data-aos-delay="50">Ətraflı<i class="icon-arrow_right icon"></i></a></div>
+                </div>
+            </li>
+            {% endfor %}
+        </ul>
+    </div>
+</section>

@@ -1,0 +1,20 @@
+{% load static %}
+<header class="header" data-page="home" data-page-parent="home">
+    <div class="container d-flex"><a class="brand" href="index.html"><img class="brand_logo" src="{% static "svg/logo.svg" %}"
+                alt="Axial Construct"> <span class="brand_name">Axial <span
+                    class="highlight">Construct</span></span></a>
+        <nav class="header_nav collapse" id="headerMenu">
+            <ul class="header_nav-list">
+                <li class="header_nav-list_item"><a class="nav-item nav-link current" href="{% url "home" %}" data-page="home"
+                    data-single="true"><span class="nav-item_text">Ana səhifə</span></a></li>
+                <li class="header_nav-list_item"><a class="nav-item nav-link" href="{% url "about" %}" data-page="about"
+                    data-single="true"><span class="nav-item_text">Haqqımızda</span></a></li>
+                <li class="header_nav-list_item"><a class="nav-item nav-link" href="about.html" data-page="about"
+                    data-single="true"><span class="nav-item_text">Servislər</span></a></li>
+                    
+            </ul>
+        </nav><button class="header_trigger" data-bs-toggle="collapse" data-bs-target="#headerMenu"
+            aria-controls="headerMenu" aria-expanded="false"><span class="line line--short"></span> <span
+                class="line"></span> <span class="line line--short"></span> <span class="line"></span></button>
+    </div>
+</header>

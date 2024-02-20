@@ -1,0 +1,18 @@
+<section class="services section">
+    <div class="container">
+        <div class="services_header section_header"><span class="subtitle">BİZ NƏ EDİRİK</span>
+            <h2 class="title" data-aos="fade-right" data-aos-duration="500">Xidmətlərimiz</h2>
+        </div>
+        <ul class="services_list">
+            {% for service in services %}
+            <li class="services_list-item" data-aos="fade-up">
+                <div class="wrapper"><span class="number">{% if forloop.counter < 10 %}0{% endif %}{{forloop.counter}}</span>
+                    <h4 class="title">{{service.title}}</h4>
+                    <p class="description">{{service.description|striptags|safe|truncatechars:"70"}}</p><a class="link link-arrow"
+                        href="{{service.get_absolute_url}}">Ətraflı <i class="icon-arrow_right icon"></i></a>
+                </div>
+            </li>
+            {% endfor %}
+        </ul>
+    </div>
+</section>

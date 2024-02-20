@@ -1,0 +1,46 @@
+<!DOCTYPE html>
+{% load static %}
+<html lang=en>
+
+<head>
+    <meta charset=UTF-8>
+    <meta name="viewport" content="width=device-width,initial-scale=1,minimum-scale=1">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Home | Axial Construct</title>
+    <link rel="stylesheet preload" as="style" href="{% static "css/preload.min.css" %}">
+    <link rel="stylesheet preload" as="style" href="{% static "css/icomoon.css" %}">
+    <link rel="stylesheet preload" as="style" href="{% static "css/libs.min.css" %}">
+    <link rel="stylesheet" href="{% static "css/index2.min.css" %}">
+    <link rel="stylesheet" href="{% static "css/team.min.css" %}">
+    <link rel="stylesheet" href="{% static "css/index.min.css" %}">
+
+
+    <link rel="stylesheet" href="{% static "css/floatbutton.min.css" %}">
+    {% block css %}{% endblock css %}
+
+
+</head>
+
+<body>
+    {% include "components/header/header.html" %}
+    {% block page_header %}{% endblock page_header %}
+    <main>
+        {% block main %}{% endblock main %}
+    </main>
+    {% include "components/footer/footer.html" %}
+    
+    <button id="scrollTrigger" type="button"><i class="icon icon-arrow_right"></i></button>
+    <script id="www-widgetapi-script" src="https://s.ytimg.com/yts/jsbin/www-widgetapi-vflS50iB-/www-widgetapi.js"
+        async=""></script>
+    <script src="https://www.youtube.com/player_api"></script>
+    <script src="{% static "js/common.min.js" %}"></script>
+    <script src="{% static "js/index2.min.js" %}"></script>
+    <script src="{% static "js/index.min.js" %}"></script>
+    <script src="{% static "js/demo.min.js" %}"></script>
+    <script async src="https://www.googletagmanager.com/gtag/js?id=undefined"></script>
+    <script>window.dataLayer = window.dataLayer || [];
+        function gtag() { dataLayer.push(arguments); }
+        gtag('js', new Date());
+        gtag('config', 'undefined');</script>
+</body>
+</html>

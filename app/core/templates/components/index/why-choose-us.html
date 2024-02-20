@@ -1,0 +1,34 @@
+<section class="advantages section">
+    <div class="container">
+        <div class="advantages_header section_header"><span class="subtitle" data-aos="fade-down">DAVAMLI İNŞAAT</span>
+            <h2 class="title" data-aos="fade-right">Niyə bizi seçirlər</h2>
+            <ul class="numbers_list">
+                <li class="numbers_list-item">
+                    <h2 class="number countNum" data-value="{{why_choose_us.completed_projects}}" data-suffix="+">0</h2><span class="label">Tamamlanmış lahiyələr</span>
+                </li>
+                <li class="numbers_list-item">
+                    <h2 class="number countNum" data-value="{{why_choose_us.turnover_price}}" data-separator=".">0</h2><span class="label">₼ Dövriyyə</span>
+                </li>
+                <li class="numbers_list-item">
+                    <h2 class="number countNum" data-value="{{why_choose_us.control_rate}}" data-suffix="%">0</h2><span class="label">Tikintiyə Nəzarət Təsdiq dərəcəsi</span>
+                </li>
+                <li class="numbers_list-item">
+                    <h2 class="number countNum" data-value="{{why_choose_us.active_projects}}" data-suffix="+">0</h2><span class="label">Aktiv lahiyələr</span>
+                </li>
+            </ul>
+        </div>
+        <div class="main">
+            <p class="main_text" data-aos="fade-left">{{why_choose_us.description|safe}}</p>
+            <ul class="main_list">
+                {% for punkt in why_choose_us.punkts.all %}
+                <li class="main_list-item"><span class="h4 number" data-aos="zoom-in">{% if forloop.counter < 10 %}0{% endif %}{{forloop.counter}}</span>
+                    <div class="wrapper">
+                        <h4 class="title" data-aos="fade-up" data-aos-delay="50">{{punkt.title}}</h4>
+                        <p class="text" data-aos="fade-up" data-aos-delay="100">{{punkt.description}}</p>
+                    </div>
+                </li>
+                {% endfor %}
+            </ul>
+        </div>
+    </div>
+</section>

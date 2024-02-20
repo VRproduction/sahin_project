@@ -1,0 +1,52 @@
+{% extends "base.html" %}
+{% load static %}
+{% block css %}
+<link rel="stylesheet" href="{% static "css/about.min.css" %}">
+{% endblock css %}
+
+{% block page_header %}
+<header class="page primary-bg">
+    <div class="container">
+        <div class="section_header"><span class="subtitle subtitle--extended">Building communities</span>
+            <h1 class="title">About</h1>
+            <ul class="breadcrumbs">
+                <li class="breadcrumbs_item"><a href="index.html">Home</a></li>
+                <li class="breadcrumbs_item breadcrumbs_item--current"><span>About</span></li>
+            </ul>
+        </div>
+    </div>
+    <div class="media">
+        <picture>
+            <source data-srcset="{% static "img/plan.png" %}" srcset="{% static "img/plan.png" %}" type="image/webp"><img class="lazy"
+                data-src="{% static "img/plan.png" %}" src="{% static "img/plan.png" %}" alt="media">
+        </picture>
+    </div>
+</header>
+{% endblock page_header %}
+
+{% block main %}
+<section class="about section">
+    <div class="container">
+        <div class="main">
+            <div class="section_header"><span class="subtitle" data-aos="fade-down">Biz kimik</span>
+                <h2 class="title" data-aos="fade-right">{{about.title}}</h2>
+                <p class="text" data-aos="fade-up" data-aos-delay="50">{{about.description|safe}}</p>
+            </div>
+            <ul class="checklist">
+                {% for punkt in about.punkts.all %}
+                <li class="checklist_item" data-aos="fade-up" {% if forloop.counter == 2 %}data-aos-delay="50"{% elif forloop.counter > 2 %}data-aos-delay="100"{% endif %}><i class="icon-arrow_right icon"></i> 
+                {{punkt.title}}
+                </li>
+                {% endfor %}
+            </ul>
+            <div class="wrapper" data-aos="fade-up"><a class="btn" href="#">Əlaqə</a></div>
+        </div>
+        <div class="media" data-aos="zoom-in" data-aos-duration="700">
+            <picture>
+                <source data-srcset="{{about.image.url}}" srcset="{{about.image.url}}" type="image/webp"><img class="lazy"
+                    data-src="{{about.image.url}}" src="{{about.image.url}}" alt="About Us">
+            </picture>
+        </div>
+    </div>
+</section>
+{% endblock main %}

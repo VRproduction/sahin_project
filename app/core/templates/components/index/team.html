@@ -1,0 +1,24 @@
+<main class="team section primary-bg">
+    <div class="container">
+        <div class="projects_header section_header">
+            <h2 class="title" data-aos="fade-right">İdarə heyyəti</h2>
+        </div>
+        <ul class="team_list">
+            {% for user in team %}
+            <li class="team_list-item" data-aos="fade-up">
+                <div class="media">
+                    <picture>
+                        <source data-srcset="{{user.image.url}}" srcset="{{user.image.url}}" type="image/webp"><img class="lazy"
+                            data-src="{{user.image.url}}" src="{{user.image.url}}" alt="{{user.full_name}}">
+                    </picture>
+                </div>
+                <div class="main">
+                    <h4 class="main_name">{{user.full_name}}</h4>
+                    <h5 class="main_position">{{user.position}}</h5>
+                    <p class="main_text">{{user.description|striptags|safe|truncatechars:"70"}}</p>
+                </div>
+            </li>
+            {% endfor %}
+        </ul>
+    </div>
+</main>

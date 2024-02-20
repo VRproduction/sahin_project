@@ -1,0 +1,23 @@
+{% load static %}
+<section class="spots section">
+    <div class="container">
+        <div class="wrapper">
+            <div class="spots_header section_header">
+                <span class="subtitle">BİZ NƏ EDİRİK</span>
+                <h2 class="title"><span class="highlight">{{about.title}}</h2>
+            </div>
+            <div class="spots_map"><img src="{{about.image.url}}" alt="Map"></div>
+        </div>
+        <div class="spots_info">
+            <p class="spots_info-text">{{about.description|safe}}</p>
+            <div class="wrapper">
+                <div class="spots_info-number">
+                    <h2 class="countNum number" data-suffix="+" data-value="{{about.active_project}}">0</h2><span class="label">İnşaat mühəndisliyində aktiv lahiyələr</span>
+                </div>
+                <div class="spots_info-number">
+                    <h2 class="countNum number" data-suffix="%" data-value="{{about.control_rate}}">0</h2><span class="label">Tikintiyə nəzarət təsdiq dərəcəsi</span>
+                </div>
+            </div><a class="spots_info-btn btn" href="about.html">Ətraflı</a>
+        </div>
+    </div>
+</section>

@@ -1,0 +1,27 @@
+<section class="blog">
+    <div class="container">
+        <div class="wrapper">
+            <h2 class="title" data-aos="fade-right" data-aos-duration="500">Xəbərlər</h2>
+        </div>
+        <ul class="blog_feed">
+            {% for item in news %}
+            <li class="blog_feed-item">
+                <div class="media">
+                    <picture>
+                        <source data-srcset="{{item.image.url}}" srcset="{{item.image.url}}" type="image/webp"><img
+                            class="lazy" data-src="{{item.image.url}}" src="{{item.image.url}}"
+                            alt="Composite Materials – Applications for the Future">
+                    </picture>
+                </div>
+                <div class="main">
+                    <div class="metadata"><i class="icon icon-dot"></i>
+                        <span class="date">{{item.created|date:"d M Y"}}</span></div>
+                    <h4 class="main_title">{{item.title}}</h4>
+                    <p class="main_text">{{item.description|striptags|safe|truncatechars:"80"}}</p><a class="link link-arrow"
+                        href="single-post.html">Daha çox <i class="icon-arrow_right icon"></i></a>
+                </div>
+            </li>
+            {% endfor %}
+        </ul>
+    </div>
+</section>
