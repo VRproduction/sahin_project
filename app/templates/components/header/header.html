@@ -1,17 +1,23 @@
 {% load static %}
 <header class="header" data-page="home" data-page-parent="home">
-    <div class="container d-flex"><a class="brand" href="index.html"><img class="brand_logo" src="{% static "svg/logo.svg" %}"
-                alt="Axial Construct"> <span class="brand_name">Axial <span
-                    class="highlight">Construct</span></span></a>
+    <div class="container d-flex"><a class="brand" href="{% url "home" %}"><img class="brand_logo" src="{% if setting.logo %}{{setting.logo.url}}{% endif %}"
+                alt="Axial Construct"></a>
         <nav class="header_nav collapse" id="headerMenu">
             <ul class="header_nav-list">
-                <li class="header_nav-list_item"><a class="nav-item nav-link current" href="{% url "home" %}" data-page="home"
+                <li class="header_nav-list_item"><a class="nav-item nav-link  {% if request.path == '/' %}current{% endif %}" href="{% url "home" %}" data-page="about"
                     data-single="true"><span class="nav-item_text">Ana səhifə</span></a></li>
-                <li class="header_nav-list_item"><a class="nav-item nav-link" href="{% url "about" %}" data-page="about"
+                <li class="header_nav-list_item"><a class="nav-item nav-link  {% if request.path == '/about/' %}current{% endif %}" href="{% url "about" %}" data-page="about"
                     data-single="true"><span class="nav-item_text">Haqqımızda</span></a></li>
-                <li class="header_nav-list_item"><a class="nav-item nav-link" href="about.html" data-page="about"
-                    data-single="true"><span class="nav-item_text">Servislər</span></a></li>
-                    
+                <li class="header_nav-list_item"><a class="nav-item nav-link  {% if request.path|slice:":10" == '/services/' %}current{% endif %}" href="{% url "services" %}" data-page="about"
+                    data-single="true"><span class="nav-item_text">SERVİSLƏR</span></a></li>
+                <li class="header_nav-list_item"><a class="nav-item nav-link  {% if request.path|slice:":10" == '/projects/' %}current{% endif %}" href="{% url "projects" %}" data-page="projects"
+                    data-single="true"><span class="nav-item_text">Proyektlər</span></a></li>   
+                <li class="header_nav-list_item"><a class="nav-item nav-link  {% if request.path|slice:":6" == '/news/' %}current{% endif %}" href="{% url "news" %}" data-page="news"
+                    data-single="true"><span class="nav-item_text">Xəbərlər</span></a></li>   
+                <li class="header_nav-list_item"><a class="nav-item nav-link  {% if request.path == '/gallery/' %}current{% endif %}" href="{% url "gallery" %}" data-page="gallery"
+                    data-single="true"><span class="nav-item_text">QALERİYA</span></a></li>        
+                <li class="header_nav-list_item"><a class="nav-item nav-link  {% if request.path == '/contact/' %}current{% endif %}" href="{% url "contact" %}" data-page="contact"
+                    data-single="true"><span class="nav-item_text">Əlaqə</span></a></li>                   
             </ul>
         </nav><button class="header_trigger" data-bs-toggle="collapse" data-bs-target="#headerMenu"
             aria-controls="headerMenu" aria-expanded="false"><span class="line line--short"></span> <span

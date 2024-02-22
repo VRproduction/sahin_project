@@ -1,0 +1,33 @@
+{% extends "base.html" %}
+{% load static %}
+{% comment %} {% block main_css %}{% endblock main_css %} {% endcomment %}
+{% block css %}
+<link rel="stylesheet" href="{% static "gallery-grid.min.css" %}">
+{% endblock css %}
+
+{% block page_header %}
+{% include "components/header/page-header.html" with subtitle="Qaleriya" title="Qaleriya" %}
+{% endblock page_header %}
+
+{% block main %}
+<main class="gallery section">
+    <div class="container">
+        <ul class="gallery_grid" data-role="gallery">
+            {% for item in gallery %}
+            <li class="gallery_item" data-aos="fade-up"><a class="media" href="{{item.image.url}}"
+                    data-caption="Fresh Concept Construction Renovation" data-role="gallery-link">
+                    <picture>
+                        <source data-srcset="{{item.image.url}}" srcset="{{item.image.url}}" type="image/webp"><img
+                            class="lazy" data-src="{{item.image.url}}" src="{{item.image.url}}"
+                            alt="Fresh Concept Construction Renovation">
+                    </picture>
+                    <div class="overlay">
+                        <h4 class="overlay_caption">{{item.title}}</h4><span>
+                    </div>
+                </a>
+            </li>
+            {% endfor %}
+        </ul>
+    </div>
+</main>
+{% endblock main %}

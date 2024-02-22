@@ -1908,7 +1908,7 @@ html[dir=rtl] #scrollTrigger {
 
 @media screen and (min-width:1169.98px) {
     .header {
-        /* padding-top: 60px */
+        padding-top: 60px
     }
 
     .header .brand_name {
@@ -2212,7 +2212,7 @@ html[dir=rtl] #scrollTrigger {
 
 @media screen and (min-width:1279.98px) {
     .hero {
-        padding: 110px 0 0;
+        padding: 180px 0 0;
     }
 
     .hero_deco {
@@ -2619,9 +2619,9 @@ html[dir=rtl] #scrollTrigger {
         margin-bottom: 40px
     }
 
-    .spots_info-text {
+    /* .spots_info-text {
         margin-top: 30px
-    }
+    } */
 
     .spots_info-btn {
         margin-top: 60px
@@ -3036,7 +3036,7 @@ html[dir=rtl] .faq_accordion-item .trigger {
         display: flex;
         -webkit-box-align: end;
         -ms-flex-align: end;
-        align-items: flex-end;
+        align-items: center;
         gap: 60px
     }
 

@@ -1,0 +1,79 @@
+{% extends "base.html" %}
+{% load static %}
+
+{% block css %}
+<link rel="stylesheet" href="{% static "css/single-project.min.css" %}">
+{% endblock css %}
+
+{% block page_header %}
+{% include "components/header/page-header.html" with subtitle="PROYEKTLƏR" title=project.title %}
+{% endblock page_header %}
+{% block main %}
+<main>
+    <div class="about section-nopb">
+        <div class="container">
+            <div class="about_content">
+                <article class="about_article">
+                    <div class="media">
+                        <picture>
+                            <source data-srcset="{{project.image.url}}" srcset="{{project.image.url}}"
+                                type="image/webp"><img class="lazy" data-src="{{project.image.url}}"
+                                src="{{project.image.url}}" alt="{{project.title}}">
+                        </picture>
+                    </div>
+                    <h3 class="about_article-header">Açıqlama</h3>
+                    <p class="about_article-text">{{project.description|safe}}</p>
+                    
+                </article>
+                <div class="about_aside">
+                    <div class="about_info about_aside-item">
+                        <div class="wrapper">
+                            <div class="wrapper--helper">
+                                <h3 class="about_info-title title">Proyekt haqqında məlumat</h3>
+                                <table class="about_info-table">
+                                    <tbody>
+                                        <tr class="about_info-table_row">
+                                            <td class="property">Adres</td>
+                                            <td class="value">{{project.location}}</td>
+                                        </tr>
+                                        <tr class="about_info-table_row">
+                                            <td class="property">Sektor</td>
+                                            <td class="value">{{project.sector}}</td>
+                                        </tr>
+                                        <tr class="about_info-table_row">
+                                            <td class="property">Texnologiya</td>
+                                            <td class="value">{{project.technology}}</td>
+                                        </tr>
+                                        <tr class="about_info-table_row">
+                                            <td class="property">İşin çərçivəsi</td>
+                                            <td class="value">{{project.scope_of_work}}</td>
+                                        </tr>
+                                        <tr class="about_info-table_row">
+                                            <td class="property">Tamamlanma tarixi</td>
+                                            <td class="value">{{project.completed}}</td>
+                                        </tr>
+                                    </tbody>
+                                </table>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="about_contact about_aside-item primary-bg">
+                        <div class="wrapper">
+                            <h3 class="about_contact-title title">Əlaqə</h3>
+                            <ul class="contact_info contact-info">
+                                <li class="contact-info_group"><span class="name">Adres</span> <span class="content">{{setting.adress}}</span></li>
+                                <li class="contact-info_group"><span class="name">Email</span> <span
+                                        class="content d-inline-flex flex-column"><a class="link"
+                                            href="mailto:{{setting.email}}">{{setting.email}}</a></span></li>
+                                <li class="contact-info_group"><span class="name">Telefon</span> <span
+                                        class="content d-inline-flex flex-column"><a class="link" href="tel:+{{setting.phone_number}}">{{setting.phone_number}}</a></span>
+                                </li>
+                            </ul>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</main>
+{% endblock main %}

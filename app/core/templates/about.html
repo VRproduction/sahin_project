@@ -5,30 +5,15 @@
 {% endblock css %}
 
 {% block page_header %}
-<header class="page primary-bg">
-    <div class="container">
-        <div class="section_header"><span class="subtitle subtitle--extended">Building communities</span>
-            <h1 class="title">About</h1>
-            <ul class="breadcrumbs">
-                <li class="breadcrumbs_item"><a href="index.html">Home</a></li>
-                <li class="breadcrumbs_item breadcrumbs_item--current"><span>About</span></li>
-            </ul>
-        </div>
-    </div>
-    <div class="media">
-        <picture>
-            <source data-srcset="{% static "img/plan.png" %}" srcset="{% static "img/plan.png" %}" type="image/webp"><img class="lazy"
-                data-src="{% static "img/plan.png" %}" src="{% static "img/plan.png" %}" alt="media">
-        </picture>
-    </div>
-</header>
+{% include "components/header/page-header.html" with subtitle="HAQQIMIZDA" title="Haqqımızda" %}
 {% endblock page_header %}
 
 {% block main %}
+<main>
 <section class="about section">
     <div class="container">
         <div class="main">
-            <div class="section_header"><span class="subtitle" data-aos="fade-down">Biz kimik</span>
+            <div class="section_header"><span class="subtitle" data-aos="fade-down">BİZ KİMİK</span>
                 <h2 class="title" data-aos="fade-right">{{about.title}}</h2>
                 <p class="text" data-aos="fade-up" data-aos-delay="50">{{about.description|safe}}</p>
             </div>
@@ -49,4 +34,5 @@
         </div>
     </div>
 </section>
+</main>
 {% endblock main %}

@@ -1,45 +1,44 @@
-<section class="contact section">
-    <div class=container>
-        <div class=contact_form>
-            <div class="contact_form-header section_header"><span class=subtitle>Contact us</span>
-                <h2 class=title>Do You Have any <span class=highlight>Questions?</span></h2>
+<section id="contact-form" class="contact section">
+    <div class="container">
+        <div class="contact_form">
+            <div class="contact_form-header section_header"><span class="subtitle">Əlaqə</span>
+                <h2 class="title">Sualınız var?</h2>
             </div>
-            <form action=https://html.merku.love/axial/form.php
-                class="contact_form-form contact-form d-flex flex-wrap justify-content-between" method=POST
-                name=feedbackForm data-type=feedback><input
-                    class="contact-form_field contact-form_field--half field required" name=feedbackName
-                    id=feedbackName type=text placeholder="Full name"> <input
-                    class="contact-form_field contact-form_field--half field required" data-type=tel type=text
-                    name=feedbackTel id=feedbackTel placeholder=Phone> <input
-                    class="contact-form_field field required" data-type=email type=text name=feedbackEmail
-                    id=feedbackEmail placeholder="Email Address"> <textarea
-                    class="contact-form_field field required" data-type=message name=feedbackMessage
-                    id=feedbackMessage placeholder=Message></textarea> <button type=submit
-                    class="contact-form_btn btn">Send message</button></form>
+            {% if messages %}
+                <ul class="messages mb-3">
+                    {% for message in messages %}
+                        <li><span style="color: green;">{{ message }}</span></li>
+                    {% endfor %}
+                </ul>
+            {% endif %}
+            <form class="contact_form contact-form d-flex flex-wrap justify-content-between" method="POST"
+                data-type="feedback">
+            {% csrf_token %}
+                <input
+                    class="contact-form_field contact-form_field--half field required" name="name"
+                    id="feedbackName" type="text" placeholder="Ad Soyad" required> 
+                <input
+                    class="contact-form_field contact-form_field--half field required" data-type="tel" type="text"
+                    name="number" id="feedbackTel" placeholder="Telefon" required> 
+                <input
+                    class="contact-form_field field required" data-type="email" required type="text" name="email"
+                    id="feedbackEmail" placeholder="Email">
+                <textarea
+                    class="contact-form_field field required" data-type="message" required name="text"
+                    id="feedbackMessage" placeholder="Mesaj"></textarea>
+                <button type="submit"
+                    class="contact-form_btn btn">Göndər</button>
+            </form>
         </div>
-        <div class=contact_info>
-            <h3 class=contact_info-header>Are You Going to Implement Project?</h3>
-            <ul class=contact-info>
-                <li class=contact-info_group><span class=name>Address</span> <span class=content>2047 Cyrus
-                        Viaduct East Jadynchester</span></li>
-                <li class=contact-info_group><span class=name>Email</span> <span
-                        class="content d-inline-flex flex-column"><a class=link
-                            href=mailto:example.com>info@construct.com</a> <a class=link
-                            href=mailto:example.com>support@construct.com</a></span></li>
-                <li class=contact-info_group><span class=name>Phone</span> <span
-                        class="content d-inline-flex flex-column"><a class=link href=tel:+13136453395>1 - 313 -
-                            645 - 3395</a> <a class=link href=tel:+14699702609>1 - 469 - 970 - 2609</a></span>
+        <div class="secondary">
+            <ul class="contact_info primary-bg p-4">
+                <li class="contact-info_group"><span class="name">Adres</span> <span class="content">{{setting.adress}}</span></li>
+                <li class="contact-info_group"><span class="name">Email</span> <span
+                        class="content d-inline-flex flex-column"><a class="link"
+                            href="mailto:{{setting.email}}">{{setting.email}}</a></span></li>
+                <li class="contact-info_group"><span class="name">Telefon</span> <span
+                        class="content d-inline-flex flex-column"><a class="link" href="tel:+{{setting.phone_number}}">{{setting.phone_number}}</a></span>
                 </li>
-            </ul>
-            <ul class=socials>
-                <li class=socials_item><a class=socials_item-link href=# target=_blank rel="noopener noreferrer"
-                        aria-label=Facebook><i class=icon-facebook></i></a></li>
-                <li class=socials_item><a class=socials_item-link href=# target=_blank rel="noopener noreferrer"
-                        aria-label=Instagram><i class=icon-instagram></i></a></li>
-                <li class=socials_item><a class=socials_item-link href=# target=_blank rel="noopener noreferrer"
-                        aria-label=Twitter><i class=icon-twitter></i></a></li>
-                <li class=socials_item><a class=socials_item-link href=# target=_blank rel="noopener noreferrer"
-                        aria-label=WhatsApp><i class=icon-whatsapp></i></a></li>
             </ul>
         </div>
     </div>

@@ -10,7 +10,7 @@
                     <picture>
                         <source data-srcset="{{item.image.url}}" srcset="{{item.image.url}}" type="image/webp"><img
                             class="lazy" data-src="{{item.image.url}}" src="{{item.image.url}}"
-                            alt="Composite Materials – Applications for the Future">
+                            alt="{{item.title}}">
                     </picture>
                 </div>
                 <div class="main">
@@ -18,7 +18,7 @@
                         <span class="date">{{item.created|date:"d M Y"}}</span></div>
                     <h4 class="main_title">{{item.title}}</h4>
                     <p class="main_text">{{item.description|striptags|safe|truncatechars:"80"}}</p><a class="link link-arrow"
-                        href="single-post.html">Daha çox <i class="icon-arrow_right icon"></i></a>
+                        href="{{item.get_absolute_url}}">Ətraflı <i class="icon-arrow_right icon"></i></a>
                 </div>
             </li>
             {% endfor %}

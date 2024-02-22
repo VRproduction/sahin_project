@@ -3,6 +3,22 @@ from .models import *
 
 MAX_OBJECTS = 1
 
+@admin.register(GeneralSettings)
+class GeneralSettingsAdmin(admin.ModelAdmin):
+
+    def has_add_permission(self, request):
+        if self.model.objects.count() >= MAX_OBJECTS:
+            return False
+        return super().has_add_permission(request)
+
+@admin.register(Hero)
+class HeroAdmin(admin.ModelAdmin):
+
+    def has_add_permission(self, request):
+        if self.model.objects.count() >= MAX_OBJECTS:
+            return False
+        return super().has_add_permission(request)
+
 admin.site.register(Service)
 admin.site.register(Project)
 
@@ -48,3 +64,4 @@ class ProcessAdmin(admin.ModelAdmin):
 admin.site.register(Gallery)
 admin.site.register(News)
 admin.site.register(Team)
+admin.site.register(Contact)

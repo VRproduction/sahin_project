@@ -1,0 +1,53 @@
+{% extends "base.html" %}
+{% load urlhelper %}
+{% load static %}
+{% block main_css %}{% endblock main_css %}
+{% block css %}
+<link rel="stylesheet" href="{% static "css/single-post.min.css" %}">
+{% endblock css %}
+
+{% block page_header %}
+{% include "components/header/page-header.html" with subtitle="XƏBƏRLƏR" title=news.title %}
+{% endblock page_header %}
+{% block main %}
+<main class="post section">
+    <div class="post_container container">
+        <div class="post_content">
+            <article class="post_article">
+                <div class="post_article-media">
+                    <picture>
+                        <source data-srcset="{{news.image.url}}" srcset="{{news.image.url}}" type="image/webp"><img class="lazy"
+                            data-src="{{news.image.url}}" src="{{news.image.url}}" alt="media">
+                    </picture>
+                </div>
+                <div class="metadata"><span class="date">{{news.created|date:"d M Y"}}</span></div>
+                <div>{{news.description|safe}}</div>
+            </article>
+        </div>
+        <aside class="widgets">
+            <div class="widgets_widget widgets_widget--latest">
+                <h3 class="widgets_widget-title">Son Xəbərlər</h3>
+                <ul class="list">
+                    {% for item in last_news %}
+                    <li class="list-item">
+                        {% if forloop.counter == 1 %}
+                        <div class="media">
+                            <picture>
+                                <source data-srcset="{{item.image.url}}" srcset="{{item.image.url}}" type="image/webp"><img
+                                    class="lazy" data-src="{{item.image.url}}" src="{{item.image.url}}"
+                                    alt="{{item.title}}">
+                            </picture>
+                        </div>
+                        {% endif %}
+                        <h4 class="title">{{item.title}}</h4><a class="link link-arrow"
+                            href="{{item.get_absolute_url}}">Ətraflı <i class="icon-arrow_right icon"></i></a>
+                    </li>
+                    {% endfor %}
+                </ul>
+            </div>
+           
+        </aside>
+    </div>
+   
+</main>
+{% endblock main %}

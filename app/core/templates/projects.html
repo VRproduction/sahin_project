@@ -1,0 +1,16 @@
+{% extends "base.html" %}
+{% load static %}
+{% block page_header %}
+{% include "components/header/page-header.html" with subtitle="PROYEKTLƏR" title="Proyektlərimiz" %}
+{% endblock page_header %}
+{% block main %}
+<main>
+    <div class="container">
+        <ul class="projects_list section">
+            {% for project in projects %}
+            {% include "components/project/project-item.html" %}
+            {% endfor %}
+        </ul>
+    </div>
+</main>
+{% endblock main %}

@@ -1,0 +1,63 @@
+{% extends "base.html" %}
+{% load static %}
+
+{% block css %}
+<link rel="stylesheet" href="{% static "css/contacts2.min.css" %}">
+{% endblock css %}
+
+{% block page_header %}
+{% include "components/header/page-header.html" with subtitle="Əlaqə" title="Əlaqə" %}
+{% endblock page_header %}
+{% block main %}
+<main>
+    <section class="contact section">
+        <div class="container">
+            <div class="main">
+                <div class="contact_header section_header">
+                    <span class="subtitle custom-subtitle">Əlaqə</span>
+                </div>
+                {% if messages %}
+                    <ul class="messages mb-3">
+                        {% for message in messages %}
+                            <li><span style="color: green;">{{ message }}</span></li>
+                        {% endfor %}
+                    </ul>
+                {% endif %}
+                <form class="contact_form contact-form d-flex flex-wrap justify-content-between" method="POST"
+                     data-type="feedback">
+                {% csrf_token %}
+                    <input
+                        class="contact-form_field contact-form_field--half field required" name="name"
+                        id="feedbackName" type="text" placeholder="Ad Soyad" required> 
+                    <input
+                        class="contact-form_field contact-form_field--half field required" data-type="tel" type="text"
+                        name="number" id="feedbackTel" placeholder="Telefon" required> 
+                    <input
+                        class="contact-form_field field required" data-type="email" required type="text" name="email"
+                        id="feedbackEmail" placeholder="Email">
+                    <textarea
+                        class="contact-form_field field required" data-type="message" required name="text"
+                        id="feedbackMessage" placeholder="Mesaj"></textarea>
+                     <button type="submit"
+                        class="contact-form_btn btn">Göndər</button>
+                </form>
+            </div>
+            <div class="secondary">
+                <ul class="contact_info contact-info">
+                    <li class="contact-info_group"><span class="name">Adres</span> <span class="content">{{setting.adress}}</span></li>
+                    <li class="contact-info_group"><span class="name">Email</span> <span
+                            class="content d-inline-flex flex-column"><a class="link"
+                                href="mailto:{{setting.email}}">{{setting.email}}</a></span></li>
+                    <li class="contact-info_group"><span class="name">Telefon</span> <span
+                            class="content d-inline-flex flex-column"><a class="link" href="tel:+{{setting.phone_number}}">{{setting.phone_number}}</a></span>
+                    </li>
+                </ul>
+            </div>
+        </div>
+    </section>
+    <div class="contacts_map">
+        <iframe frameborder="0" height="500" width="100%"
+          src="{{setting.g_adress_iframe}}"></iframe>
+    </div>
+</main>
+{% endblock main %}

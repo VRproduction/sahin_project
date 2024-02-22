@@ -6,40 +6,25 @@
                 data-src="{% static "img/plan.png" %}" src="{% static "img/plan.png" %}" alt="media">
         </picture>
     </div>
-    <div class="container">
+    <div class="container" style="padding-bottom: 340px;">
         <div class="hero_media" data-aos="fade-up" data-aos-delay="50">
             <picture>
-                <source data-srcset="{% static "img/building.png" %}" srcset="{% static "img/building.png" %}" type="image/webp"><img class="lazy"
-                    data-src="{% static "img/building.png" %}" src="{% static "img/building.png" %}" alt="media">
+                <source data-srcset="{{hero.image.url}}" srcset="{{hero.image.url}}" type="image/webp"><img class="lazy"
+                    data-src="{{hero.image.url}}" src="{{hero.image.url}}" alt="media">
             </picture>
         </div>
-        <div class="hero_header section_header"><span class="subtitle subtitle--extended">Professional.
-                Innovative. Reliable.</span>
-            <h1 class="title">Exceptional Service Exceeding Expectations</h1>
-            <p class="text">Our civil and structural team is committed to providing sustainable, creative &
-                efficient engineering solutions for our communities</p><a class=btn href=#>Consult now</a>
+        <div class="hero_header section_header"><span class="subtitle subtitle--extended">{{hero.slogan}}</span>
+            <h1 class="title">{{hero.title}}</h1>
+            <p class="text">{{hero.description}}</p><a class="btn" href="{% url "contact" %}">Əlaqə</a>
         </div>
-        <div class="hero_main">
+        <div class="hero_main" >
             <div class="numbers">
                 <div class="numbers_group">
-                    <h2 class="countNum number" data-suffix="+" data-value="128">0</h2><span class="label">Projects /
-                        Year</span>
+                    <h2 class="countNum number" data-suffix="+" data-value="{{hero.project_for_year}}">0</h2><span class="label">Proyekt / İl</span>
                 </div>
                 <div class="numbers_group">
-                    <h2 class="countNum number" data-separator="." data-value="4253">0</h2><span class="label">Million
-                        euros<br>turnover in 2020</span>
+                    <h2 class="countNum number" data-separator="." data-value="{{hero.turnover}}">0</h2><span class="label">İllik dövriyyə</span>
                 </div>
-            </div>
-            <div class="card" data-aos="fade-right"><span class="card_underlay"></span>
-                <div class="wrapper">
-                    <h3 class="title">Residential House</h3><span class="square highlight">78 000 м
-                        <sup>2</sup></span> <span class="info">Amount work done</span> <a class="link link-arrow"
-                        href="#">Details <i class="icon-arrow_right icon"></i></a>
-                </div>
-                <picture>
-                    <source data-srcset="{% static "img/building_mini.png" %}" srcset="{% static "img/building_mini.png" %}" type="image/webp">
-                    <img class="lazy" data-src="{% static "img/building_mini.png" %}" src="{% static "img/building_mini.png" %}" alt="media">
-                </picture>
             </div>
         </div>
     </div>

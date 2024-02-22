@@ -1,12 +1,14 @@
 {% load static %}
 <section class="spots section">
     <div class="container">
+        <div class="spots_header section_header">
+            <span class="subtitle">BİZ NƏ EDİRİK</span>
+            <h2 class="title"><span class="highlight">{{about.title}}</h2>
+        </div>
+    </div>
+    <div class="container">
         <div class="wrapper">
-            <div class="spots_header section_header">
-                <span class="subtitle">BİZ NƏ EDİRİK</span>
-                <h2 class="title"><span class="highlight">{{about.title}}</h2>
-            </div>
-            <div class="spots_map"><img src="{{about.image.url}}" alt="Map"></div>
+            <img style="max-height: 810px;" src="{{about.image.url}}" alt="Map">
         </div>
         <div class="spots_info">
             <p class="spots_info-text">{{about.description|safe}}</p>

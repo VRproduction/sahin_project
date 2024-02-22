@@ -1,0 +1,18 @@
+{% load static %}
+<header class="page primary-bg">
+    <div class="container">
+        <div class="section_header">
+            <span class="subtitle custom-subtitle subtitle--extended">{{subtitle}}</span>
+            <ul class="breadcrumbs">
+                <li class="breadcrumbs_item"><a href="{% url "home" %}">Ana səhifə</a></li>
+                <li class="breadcrumbs_item breadcrumbs_item--current"><span>{{title}}</span></li>
+            </ul>
+        </div>
+    </div>
+    <div class="media">
+        <picture>
+            <source data-srcset="{% static "img/plan.png" %}" srcset="{% static "img/plan.png" %}" type="image/webp"><img class="lazy"
+                data-src="{% static "img/plan.png" %}" src="{% static "img/plan.png" %}" alt="media">
+        </picture>
+    </div>
+</header>
