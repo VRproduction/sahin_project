@@ -1146,14 +1146,14 @@ input[type=checkbox]+label .icon {
         width: fit-content !important
     }
 
-    .numbers_list {
+    /* .numbers_list {
         display: grid;
         grid-template-columns: repeat(2, auto);
         width: -webkit-fit-content;
         width: -moz-fit-content;
         width: fit-content;
         grid-gap: 30px
-    }
+    } */
 
     .gallery_item .media .overlay {
         padding: 30px

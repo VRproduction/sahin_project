@@ -9,7 +9,7 @@
                 <li class="header_nav-list_item"><a class="nav-item nav-link  {% if request.path == '/about/' %}current{% endif %}" href="{% url "about" %}" data-page="about"
                     data-single="true"><span class="nav-item_text">Haqqımızda</span></a></li>
                 <li class="header_nav-list_item"><a class="nav-item nav-link  {% if request.path|slice:":10" == '/services/' %}current{% endif %}" href="{% url "services" %}" data-page="about"
-                    data-single="true"><span class="nav-item_text">SERVİSLƏR</span></a></li>
+                    data-single="true"><span class="nav-item_text">XİDMƏTLƏR</span></a></li>
                 <li class="header_nav-list_item"><a class="nav-item nav-link  {% if request.path|slice:":10" == '/projects/' %}current{% endif %}" href="{% url "projects" %}" data-page="projects"
                     data-single="true"><span class="nav-item_text">Proyektlər</span></a></li>   
                 <li class="header_nav-list_item"><a class="nav-item nav-link  {% if request.path|slice:":6" == '/news/' %}current{% endif %}" href="{% url "news" %}" data-page="news"
