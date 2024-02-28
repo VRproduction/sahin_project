@@ -1655,7 +1655,7 @@ html[dir=rtl] #scrollTrigger {
     -webkit-box-pack: justify;
     -ms-flex-pack: justify;
     justify-content: space-between;
-    padding: 15px 20px
+    padding: 20px
 }
 
 .header_trigger {
@@ -2138,6 +2138,43 @@ html[dir=rtl] #scrollTrigger {
     html[dir=rtl] .hero_main .card img {
         right: auto;
         left: -25%
+    }
+}
+
+@media screen and (max-width:768px) {
+    .hero{
+        padding: 70px 0 0;
+    }
+    .hero-bg-color{
+        position: absolute;
+        width: 100%;
+        left: 0;
+        height: 100vh;
+        z-index: 100;
+        background-color: #001f3f;
+        opacity: 0.4;
+    }
+    .hero .subtitle--extended{
+        margin-top: 60px !important;
+    }
+    .hero .title{
+        font-size: 50px;
+    }
+    .hero .text{
+        font-size: 25px;
+    }
+
+    .hero .container {
+        padding-bottom: 250px !important;
+    }
+    .hero-mobile-img{
+        position: absolute;
+        width: 100%;
+        left: 0;
+        height: 100vh;
+    }
+    .hero .sec-btn{
+        margin-top: 100px;
     }
 }
 

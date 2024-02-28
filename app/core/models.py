@@ -74,6 +74,7 @@ class Project(models.Model):
     technology = models.CharField(max_length = 50, null = True)
     scope_of_work = models.BigIntegerField()
     completed = models.DateField(null = True)
+    show_detail_info = models.BooleanField(default = False)
 
     def __str__(self) -> str:
         return self.title 

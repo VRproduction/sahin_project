@@ -7,25 +7,30 @@
         </picture>
     </div>
     <div class="container" style="padding-bottom: 340px;">
+        {% if is_mobile %}
+        <picture>
+            <source data-srcset="{{hero.image.url}}" srcset="{{hero.image.url}}" type="image/webp"><img class="lazy hero-mobile-img"
+                data-src="{{hero.image.url}}" src="{{hero.image.url}}" alt="media">
+        </picture>
+        {% endif %}
+        {% if is_mobile %}
+        <div class="hero-bg-color">
+        </div>
+        {% endif %}
+        {% if not is_mobile %}
         <div class="hero_media" data-aos="fade-up" data-aos-delay="50">
             <picture>
                 <source data-srcset="{{hero.image.url}}" srcset="{{hero.image.url}}" type="image/webp"><img class="lazy"
                     data-src="{{hero.image.url}}" src="{{hero.image.url}}" alt="media">
             </picture>
         </div>
+        {% endif %}
         <div class="hero_header section_header"><span class="subtitle subtitle--extended">{{hero.slogan}}</span>
             <h1 class="title">{{hero.title}}</h1>
-            <p class="text">{{hero.description}}</p><a class="btn" href="{% url "contact" %}">Əlaqə</a>
-        </div>
-        <div class="hero_main" >
-            <div class="numbers">
-                <div class="numbers_group">
-                    <h2 class="countNum number" data-suffix="+" data-value="{{hero.project_for_year}}">0</h2><span class="label">Proyekt / İl</span>
-                </div>
-                <div class="numbers_group">
-                    <h2 class="countNum number" data-separator="." data-value="{{hero.turnover}}">0</h2><span class="label">İllik dövriyyə</span>
-                </div>
-            </div>
+            <p class="text">{{hero.description}}</p>
+            <div class="sec-btn">
+                <a class="btn" href="{% url "contact" %}">Əlaqə</a>
+            <div>
         </div>
     </div>
 </section>
