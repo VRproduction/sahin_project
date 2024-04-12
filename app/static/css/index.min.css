@@ -667,8 +667,7 @@ input[type=checkbox]+label .icon {
 }
 
 .brand_logo {
-    width: 130px;
-    height: 31px
+    height: 80px;
 }
 
 .tags {
@@ -1908,7 +1907,7 @@ html[dir=rtl] #scrollTrigger {
 
 @media screen and (min-width:1169.98px) {
     .header {
-        padding-top: 60px
+        padding-top: 30px
     }
 
     .header .brand_name {

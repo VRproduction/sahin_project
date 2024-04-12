@@ -667,8 +667,7 @@ input[type=checkbox]+label .icon {
 }
 
 .brand_logo {
-    width: 130px;
-    height: 31px
+    height: 80px;
 }
 
 .tags {
