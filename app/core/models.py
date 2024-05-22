@@ -197,7 +197,7 @@ class News(models.Model):
 class Team(models.Model):
     full_name = models.CharField(max_length = 100)
     position = models.CharField(max_length = 100)
-    description = RichTextUploadingField()
+    description = RichTextUploadingField(null = True, blank = True)
     image = models.ImageField(upload_to = 'team', null = True)
 
 
