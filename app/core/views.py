@@ -18,7 +18,7 @@ class HomePageView(TemplateView):
         context["process"] = Process.objects.first()
         context["gallery"] = Gallery.objects.all()[:3]
         context["news"] = News.objects.filter(is_main_page = True)[:3]
-        context["team"] = Team.objects.all()[:2]
+        context["team"] = Team.objects.all()
         return context
     
     def post(self, request, *args, **kwargs):

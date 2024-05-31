@@ -199,6 +199,7 @@ class Team(models.Model):
     position = models.CharField(max_length = 100)
     description = RichTextUploadingField(null = True, blank = True)
     image = models.ImageField(upload_to = 'team', null = True)
+    order = models.PositiveIntegerField(default=0, blank=False, null=False)
 
 
     def __str__(self):
@@ -207,6 +208,13 @@ class Team(models.Model):
     class Meta:
         verbose_name = "Üzv"
         verbose_name_plural = "Komanda üzvləri"
+        ordering = ['order'] 
+
+    def save(self, *args, **kwargs):
+        if not self.pk:
+            max_order = Team.objects.aggregate(models.Max('order'))['order__max'] or 0
+            self.order = max_order + 1
+        super().save(*args, **kwargs)
 
 class Contact(models.Model):
     name = models.CharField(max_length = 200)

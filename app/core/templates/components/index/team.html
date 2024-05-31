@@ -1,24 +1,97 @@
+  <style>
+    .swiper {
+      width: 100%;
+      height: 753px;
+    }
+
+    .swiper-slide {
+        border-radius: 10px;
+      font-size: 18px;
+      background: #003060; /* Lighter shade of blue */
+      overflow: hidden;
+    }
+    .swiper-pagination-bullet { 
+        background-color: #ccc; 
+        opacity: 1; 
+      }
+      
+      .swiper-pagination-bullet-active { 
+        background-color: #ccc; 
+      }
+      .swiper-pagination-bullet-active:after { 
+        border-color: #ccc; 
+      }
+      .swiper-slide .swiper-team-media {
+       height: 80%;
+       width: 100%;
+       background-color: #f8f8f8;
+    }
+    .swiper-slide .swiper-team-media img{
+        object-fit:cover;
+        width: 100%;
+        height: 100%;
+        object-position: top;
+     }
+     .swiper-slide .main{
+        padding: 20px;
+     }
+     .swiper-slide .main_position{
+        margin-top: 10px;
+        color: green;
+     }
+  </style>
 <main class="team section primary-bg">
     <div class="container">
         <div class="projects_header section_header">
             <h2 class="title" data-aos="fade-right">İdarə heyəti</h2>
         </div>
-        <ul class="team_list">
-            {% for user in team %}
-            <li class="team_list-item" data-aos="fade-up">
-                <div class="media">
-                    <picture>
-                        <source data-srcset="{{user.image.url}}" srcset="{{user.image.url}}" type="image/webp"><img class="lazy"
-                            data-src="{{user.image.url}}" src="{{user.image.url}}" alt="{{user.full_name}}">
-                    </picture>
+        <div class="swiper mySwiper">
+            <div class="swiper-wrapper">
+                {% for user in team %}
+                <div class="swiper-slide">
+                    <div class="swiper-team-media">
+                        <img src="{{user.image.url}}" alt="">
+                    </div>
+                    <div class="main">
+                        <h4 class="main_name">{{user.full_name}}</h4>
+                        <h5 class="main_position">{{user.position}}</h5>
+                        <p class="main_text">{{user.description|striptags|safe|truncatechars:"70"}}</p>
+                    </div>
                 </div>
-                <div class="main">
-                    <h4 class="main_name">{{user.full_name}}</h4>
-                    <h5 class="main_position">{{user.position}}</h5>
-                    <p class="main_text">{{user.description|striptags|safe|truncatechars:"70"}}</p>
-                </div>
-            </li>
-            {% endfor %}
-        </ul>
+                {% endfor %}
+            </div>
+            <div class="swiper-button-next"></div>
+            <div class="swiper-button-prev"></div>
+            <div class="swiper-pagination"></div>
+          </div>
+
+          <script>
+            var swiper = new Swiper(".mySwiper", {
+              slidesPerView: 1,
+              spaceBetween: 10,
+              pagination: {
+                el: ".swiper-pagination",
+                clickable: true,
+              },
+              navigation: {
+                nextEl: ".swiper-button-next",
+                prevEl: ".swiper-button-prev",
+              },
+              breakpoints: {
+                640: {
+                  slidesPerView: 2,
+                  spaceBetween: 10,
+                },
+                768: {
+                  slidesPerView: 2,
+                  spaceBetween: 10,
+                },
+                1024: {
+                  slidesPerView: 3,
+                  spaceBetween: 20,
+                },
+              },
+            });
+          </script>
     </div>
 </main>
