@@ -198,7 +198,7 @@ class Team(models.Model):
     full_name = models.CharField(max_length = 100)
     position = models.CharField(max_length = 100)
     description = RichTextUploadingField(null = True, blank = True)
-    image = models.ImageField(upload_to = 'team', null = True)
+    image = models.ImageField(upload_to = 'team', null = True, verbose_name = 'image (417x603)px')
     order = models.PositiveIntegerField(default=0, blank=False, null=False)
 
 
